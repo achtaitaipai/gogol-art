@@ -1,5 +1,5 @@
 import axios from 'axios'
-import './index.css'
+import '../style/pages/index.css'
 
 interface Result {
 	title: string
@@ -12,6 +12,7 @@ const searchInput = document.getElementById('searchInput-js') as HTMLInputElemen
 const resultsContainer = document.getElementById('results-js') as HTMLUListElement
 const suggestionContainer = document.getElementById('suggestion-js') as HTMLParagraphElement
 const loader = document.getElementById('loader-js')
+const withoutWiki = document.querySelector<HTMLLinkElement>('#withoutWiki-js')
 
 //check url
 ;(function () {
@@ -51,11 +52,15 @@ async function search(toSearch: string) {
 			li.classList.add('results_itm')
 			const a = document.createElement('a')
 			a.classList.add('results_link')
-			a.setAttribute('href', `/slide/index.html?search=${el.pageid}`)
+			a.setAttribute('href', `/slide/index.html?id=${el.pageid}`)
 			a.textContent = el.title
 			li.appendChild(a)
 			resultsContainer?.appendChild(li)
 		})
+		if (withoutWiki) {
+			withoutWiki.className = 'withoutWiki-active'
+			withoutWiki.setAttribute('href', `/slide/index.html?search=${toSearch}`)
+		}
 	}
 	if (datas && loader) loader.className = 'lds-ellipsis-inactive'
 }

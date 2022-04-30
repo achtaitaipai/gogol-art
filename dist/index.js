@@ -156,16 +156,18 @@ SearchRouter.get("/:toSearch", async (req, res) => {
 var search_controller_default = SearchRouter;
 
 // src/index.ts
+var PORT = process.env.PORT || 4e3;
 var app = (0, import_express3.default)();
 app.use((0, import_cors.default)());
 app.use(import_express3.default.json());
 app.use(import_express3.default.static(import_path.default.resolve(__dirname, "./client")));
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
+  console.log("oe");
   res.sendFile(import_path.default.resolve(__dirname, "./client", "index.html"));
 });
-app.get("/slide", (req, res) => {
+app.get("/slide", (_, res) => {
   res.sendFile(import_path.default.resolve(__dirname, "./client", "/slide/slide.html"));
 });
 app.use("/api/search", search_controller_default);
 app.use("/api/infos", infos_controller_default);
-app.listen(process.env.PORT || 4e3, () => console.log(`http://loacalhost:${process.env.PORT || 4e3}`));
+app.listen(PORT, () => console.log(`http://loacalhost:${PORT}`));

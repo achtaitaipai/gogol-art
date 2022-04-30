@@ -1,1 +1,0 @@
-import{a as s}from"./index.a2e70da6.js";(function(){const a=window.location.search,n=new URLSearchParams(a).get("search");n&&t(n)})();async function t(a){const o=await s.get(`/api/infos/byid/${a}`);console.log(o)}

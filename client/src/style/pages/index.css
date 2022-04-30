@@ -6,7 +6,7 @@
 @import url('/src/style/components/loader.css');
 
 .main {
-	width: 80%;
+	width: min(80%, 500px);
 	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
@@ -16,6 +16,7 @@
 }
 .suggestion {
 	margin-top: 1rem;
+	align-self: flex-start;
 }
 
 .results {
@@ -30,4 +31,11 @@
 .results_link {
 	font-size: 1.5rem;
 	font-weight: 700;
+}
+.withoutWiki {
+	display: none;
+}
+.withoutWiki-active {
+	align-self: flex-end;
+	display: inline-block;
 }

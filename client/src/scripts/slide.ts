@@ -1,5 +1,5 @@
 import axios from 'axios'
-import './slide.css'
+import '../style/pages/slide.css'
 import Slide from './components/slideCanvas'
 
 interface ImageData {
@@ -27,12 +27,16 @@ let currentImg = 0
 ;(async function () {
 	const queryString = window.location.search
 	const url = new URLSearchParams(queryString)
+	const id = url.get('id')
+	// if (id) getInfos(id)
 	const toSearch = url.get('search')
-	if (toSearch) getImages(toSearch)
+	if (id || toSearch) getInfos({ id, toSearch })
+	// if (toSearch) getImages(toSearch)
 })()
 
-async function getImages(id: string) {
-	const datas = await axios.get(`/api/infos/byid/${id}`)
+async function getInfos({ id, toSearch }: { id: string | null; toSearch: string | null }) {
+	const url = id ? `/api/infos/byid/${id}` : `/api/infos/bytitle/${toSearch}`
+	const datas = await axios.get(url)
 	const infos = datas.data
 	images = infos.images
 	const imgUrl = images[currentImg].source
@@ -40,9 +44,11 @@ async function getImages(id: string) {
 		if (loader) loader.className = 'lds-ellipsis-inactive'
 		slide.setAttribute('img', imgUrl)
 		for (const label of infosLabels) {
-			slide.setAttribute(label, infos[label])
-			const input = document.querySelector<HTMLInputElement>('#' + label)
-			if (input) input.value = infos[label]
+			if (infos[label]) {
+				slide.setAttribute(label, infos[label])
+				const input = document.querySelector<HTMLInputElement>('#' + label)
+				if (input) input.value = infos[label]
+			}
 		}
 		slide.refresh()
 	}
