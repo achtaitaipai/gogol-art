@@ -40,7 +40,7 @@ async function getInfos({ id, toSearch }: { id: string | null; toSearch: string 
 	const datas = await axios.get(url)
 	const infos = datas.data
 	images = infos.images
-	const imgUrl = images[currentImg].source
+	const imgUrl = images[currentImg]?.source
 	if (slide && imgUrl) {
 		if (loader) loader.className = 'lds-ellipsis-inactive'
 		slide.setAttribute('img', imgUrl)
@@ -82,7 +82,6 @@ fullScreenBtn?.addEventListener('click', e => {
 inputs?.forEach(input => {
 	input.addEventListener('input', e => {
 		const el = e.target as HTMLInputElement
-		console.log(el.value, el.id)
 		slide.setAttribute(el.id, el.value)
 		slide.refresh()
 	})
