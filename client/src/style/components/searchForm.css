@@ -1,0 +1,37 @@
+.searchForm {
+	display: flex;
+	font-size: 0;
+	border: 1px solid var(--clr-primarytext);
+	border-radius: 0.4rem;
+}
+.searchForm:hover {
+	border-color: var(--clr-primarylink);
+}
+.searchForm:hover svg {
+	fill: var(--clr-primarylink);
+}
+.searchForm:focus-within {
+	outline: 1px solid var(--clr-primarytext);
+}
+
+.searchForm_input:focus {
+	outline-style: none;
+}
+
+.searchForm_input,
+.searchForm_btn {
+	border: 0;
+	display: inline;
+	background: none;
+	color: var(--clr-primarytext);
+	padding: 0.2rem;
+}
+.searchForm_input {
+	width: 250px;
+	padding-left: 0.5rem;
+}
+.searchForm_btn svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: var(--clr-primarytext);
+}

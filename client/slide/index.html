@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="../src/slide.ts" type="module"></script>
+		<title>Gogol Art</title>
+	</head>
+	<body>
+		<main class="main">
+			<div class="slide">
+				<canvas is="slide-view" width="1920" height="1080" class="slide_view" id="slide-js"></canvas>
+				<div class="slide_controls">
+					<button class="slide_btn" id="prevBtn-js">&#60;</button>
+					<button class="slide_btn" id="nextBtn-js">&#62;</button>
+				</div>
+			</div>
+			<form action="" class="settings" id="settings-js">
+				<h3 class="settings_title">Informations</h3>
+				<label for="titre">titre :</label>
+				<input type="text" name="" id="titre" class="settings_input" />
+				<label for="artiste">artiste :</label>
+				<input type="text" name="" id="artiste" class="settings_input" />
+				<label for="date">date :</label>
+				<input type="text" name="" id="date" class="settings_input" />
+				<label for="medium">medium :</label>
+				<input type="text" name="" id="medium" class="settings_input" />
+				<label for="dimensions">dimensions :</label>
+				<input type="text" name="" id="dimensions" class="settings_input" />
+				<label for="localisation">localisation :</label>
+				<input type="text" name="" id="localisation" class="settings_input" />
+				<button id="export-js" class="settings_btn">Export</button>
+			</form>
+		</main>
+	</body>
+</html>
