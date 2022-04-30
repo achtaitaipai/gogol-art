@@ -23,4 +23,4 @@ app.get('/slide', (req, res) => {
 app.use('/api/search', SearchRouter)
 app.use('/api/infos', InfosController)
 
-app.listen(process.env.PORT || 4000, () => console.log(`c'est parti sur le port : ${process.env.PORT || 4000}`))
+app.listen(process.env.PORT || 4000, () => console.log(`http://loacalhost:${process.env.PORT || 4000}`))
