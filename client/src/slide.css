@@ -68,3 +68,8 @@ body {
 	background-color: rgb(242, 242, 242);
 	margin-bottom: 2rem;
 }
+
+.loader {
+	position: absolute;
+	--clr-loader: white;
+}

@@ -168,4 +168,4 @@ app.get("/slide", (req, res) => {
 });
 app.use("/api/search", search_controller_default);
 app.use("/api/infos", infos_controller_default);
-app.listen(process.env.PORT || 4e3, () => console.log(`c'est parti sur le port : ${process.env.PORT || 4e3}`));
+app.listen(process.env.PORT || 4e3, () => console.log(`http://loacalhost:${process.env.PORT || 4e3}`));

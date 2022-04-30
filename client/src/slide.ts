@@ -17,6 +17,7 @@ const exportBtn = document.getElementById('export-js')
 const prevBtn = document.getElementById('prevBtn-js')
 const nextBtn = document.getElementById('nextBtn-js')
 const settingsForm = document.querySelector('body > main > form')
+const loader = document.getElementById('loader-js')
 
 const inputs = settingsForm?.querySelectorAll<HTMLInputElement>('input')
 
@@ -36,6 +37,7 @@ async function getImages(id: string) {
 	images = infos.images
 	const imgUrl = images[currentImg].source
 	if (slide && imgUrl) {
+		if (loader) loader.className = 'lds-ellipsis-inactive'
 		slide.setAttribute('img', imgUrl)
 		for (const label of infosLabels) {
 			slide.setAttribute(label, infos[label])
