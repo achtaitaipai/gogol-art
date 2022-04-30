@@ -2,6 +2,7 @@
 @import url('/src/style/utils/variables.css');
 @import url('/src/style/utils/bases.css');
 @import url('/src/style/components/loader.css');
+@import url('/src/style/components/fullscreen.css');
 body {
 	height: 100vh;
 	display: flex;

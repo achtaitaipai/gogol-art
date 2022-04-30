@@ -18,6 +18,7 @@ const prevBtn = document.getElementById('prevBtn-js')
 const nextBtn = document.getElementById('nextBtn-js')
 const settingsForm = document.querySelector('body > main > form')
 const loader = document.getElementById('loader-js')
+const fullScreenBtn = document.getElementById('fullscreenBtn-js')
 
 const inputs = settingsForm?.querySelectorAll<HTMLInputElement>('input')
 
@@ -71,6 +72,11 @@ prevBtn?.addEventListener('click', _ => {
 	const imgUrl = images[currentImg].source
 	slide.setAttribute('img', imgUrl)
 	slide.refresh()
+})
+
+fullScreenBtn?.addEventListener('click', e => {
+	e.preventDefault()
+	slide.requestFullscreen()
 })
 
 inputs?.forEach(input => {
